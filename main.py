@@ -35,5 +35,17 @@ async def buscar_tarefa(tarefa_id: int):
     
     raise HTTPException(status_code=404, detail="Tarefa não encontrada!")
 
+# ROTA PARA ALTERAR TAREFA
+@app.put("/tarefas/{tarefa_id}")
+async def alterar_tarefa(tarefa_id: int, tarefa_atualizada: Tarefa):
+    for index, t in enumerate(db_tarefas):
+        if t.id == tarefa_id:
+            tarefa_atualizada.id = tarefa_id
+
+            db_tarefas[index] = tarefa_atualizada
+        
+            return tarefa_atualizada
+    raise HTTPException(status_code=404, detail="Tarefa não encontrada")
+
 
 
