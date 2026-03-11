@@ -47,5 +47,12 @@ async def alterar_tarefa(tarefa_id: int, tarefa_atualizada: Tarefa):
             return tarefa_atualizada
     raise HTTPException(status_code=404, detail="Tarefa não encontrada")
 
-
-
+# ROTA PARA EXCLUIR TAREFA
+@app.delete("/tarefas/{tarefa_id}", status_code=204)
+async def excluir_tarefa(tarefa_id: int):
+    for t in db_tarefas:
+        if t.id == tarefa_id:
+            db_tarefas.remove(t)
+            return
+        
+    raise HTTPException(status_code=404, detail="Tarefa não encontrada")
