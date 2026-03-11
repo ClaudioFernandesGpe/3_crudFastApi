@@ -3,8 +3,8 @@ Esse é um projeto básico para aprendizado inicial do FastApi e backend em pyth
 
 --------------------------------------------------------------------
 TECNOLOGIAS UTILIZADAS:
--> Python 3
--> FasApi
--> Pydantic
--> Uvicorn
--> Swagger
+- Python 3
+- FasApi
+- Pydantic
+- Uvicorn
+- Swagger
